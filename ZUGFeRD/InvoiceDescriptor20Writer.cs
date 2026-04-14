@@ -574,6 +574,9 @@ namespace s2industries.ZUGFeRD
             _WriteComment(_Writer, options, InvoiceCommentConstants.ApplicableHeaderTradeDeliveryComment);
             _Writer.WriteStartElement("ram", "ApplicableHeaderTradeDelivery"); // Pflichteintrag
 
+            // ApplicableHeaderTradeDelivery is mandatory, so flush here to ensure it appears in the XML even if it has no child elements.
+            _Writer.ForceFlushPendingStartElements();
+
             //RelatedSupplyChainConsignment --> SpecifiedLogisticsTransportMovement --> ModeCode // Only in extended profile
             if (this._Descriptor.TransportMode != null)
             {

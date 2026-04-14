@@ -174,6 +174,12 @@ namespace s2industries.ZUGFeRD
             this.TextWriter?.Flush();
         } // !Flush()
 
+
+        public void ForceFlushPendingStartElements()
+        {
+            _FlushPendingStartElements();
+        } // !FlushPendingStartElements()
+
         public void WriteStartElement(string prefix, string localName, Profile profile = Profile.Unknown)
         {
             Profile safeProfile = profile;
